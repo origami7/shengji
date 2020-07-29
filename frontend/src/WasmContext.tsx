@@ -22,6 +22,7 @@ interface Context {
     req: IDecomposeTrickFormatRequest
   ) => IDecomposedTrickFormat[];
   canPlayCards: (req: ICanPlayCardsRequest) => boolean;
+  decodeWireFormat: (req: any) => any;
 }
 
 export interface IFoundViablePlay {
@@ -76,6 +77,7 @@ export const WasmContext = React.createContext<Context>({
   sortAndGroupCards: (req) => [],
   decomposeTrickFormat: (req) => [],
   canPlayCards: (req) => false,
+  decodeWireFormat: (req) => {},
 });
 
 export default WasmContext;

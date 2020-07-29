@@ -26,6 +26,9 @@ const ShengjiProvider = (props: IProps): JSX.Element => {
         canPlayCards: (req) => {
           return Shengji.can_play_cards(req).playable;
         },
+        decodeWireFormat: (req) => {
+          return JSON.parse(Shengji.zstd_decompress(req));
+        },
       }}
     >
       {props.children}
